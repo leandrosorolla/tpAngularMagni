@@ -1,0 +1,29 @@
+<h1>{{intrumento.nombre | uppercase}}</h1>
+<hr>
+<div class="row">
+  <div class="col-md-4" style="text-align: center">
+     <img src="assets/images/{{intrumento.imagen}}" style="max-width: 300px;"
+      class="img-fluid" [alt]="intrumento.intrumento">
+       <br><br>
+       <p><b>Descripcion:</b>{{intrumento.descripcion}}</p>
+       <br><br>
+       <a [routerLink]="['/instrumentos']"
+      class="btn btn-outline-danger btn-block">Regresar</a> </div>
+  <div class="col-md-8">
+    <h6>{{intrumento.cantidadVendida}} vendidos</h6>
+    <h3 style="color: crimson">{{intrumento.instrumento}}</h3>
+    <hr>
+    <p><b>Precio:</b> ${{intrumento.precio}}</p>
+    <p><b>Marca:</b> {{intrumento.marca}}</p>
+    <p><b>Modelo:</b> {{intrumento.marca}}</p>
+    <p>Costo de Envio</p>
+    <div *ngIf="intrumento.costoEnvio == 'G'">
+      <img src="../../../assets/images/camion.png" alt="">
+      <span  style="color:rgb(60, 172, 16); font-weight: bold;">Envio Gratis</span>
+
+  </div>
+    <div *ngIf="intrumento.costoEnvio != 'G'">
+      <p>$ {{intrumento.costoEnvio}}</p>
+    </div>
+
+</div>
