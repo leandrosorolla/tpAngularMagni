@@ -1,11 +1,8 @@
 <h1>Buscando: {{termino}} </h1>
 <div class="card-deck">
-  <div class="card" *ngFor="let intrAux of intrumentoBusqueda; let i = index" style="max-width: 33%; padding: 10px;"> <img
-      class="card-img-top" src="assets/images/{{intrAux.imagen}}" alt="Card image cap" style="max-height: 150px;">
-    <div class="card-body">
-      <h5 class="card-title">{{intrAux.instrumento}}</h5>
-      <p class="card-text">$ {{intrAux.precio}}</p>
-    </div>
-    <div class="card-footer" style="text-align: center;"> <button (click)="verInstrumento(intrAux.id)"
-        class="btn btn-primary" style="width: 90%;">Detalle</button> </div>
+  <app-item-intrumento (instrumentoSeleccionado)= "verPlato($event)" 
+  *ngFor="let intruLocal of intruArr;let i = index" [intruAux]="intruLocal"
+  [index]="intruLocal.id">
+  </app-item-intrumento>
+
   </div>

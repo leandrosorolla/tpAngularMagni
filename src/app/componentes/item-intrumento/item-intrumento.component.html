@@ -1,0 +1,17 @@
+<h1>Nuestros Instrumentos</h1>
+<div class="row row-cols-1 row-cols-md-4">
+  <div class="col mb-4"*ngFor="let intsAux of instArr; let i = index">
+    <div class="card "
+      style=" padding: 10px; margin: 1rem;">
+      <img src="../../../assets/images/{{intsAux.imagen}}" class="card-img-top" alt="Card imagen cap"
+        style="max-height: 150px;">
+      <div class="card-body">
+        <h5 class="card-title">{{intsAux.instrumento}}</h5>
+        <p class="card-text">${{intsAux.precio}}</p>
+      </div>
+      <div class="card-footer" style="text-align: center ;">
+        <button (click)="verInstr(intsAux.id)" class="btn btn-primary" style="width: 90%;">Detalle</button>
+      </div>
+    </div>
+  </div>
+</div>

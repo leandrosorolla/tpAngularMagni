@@ -1,6 +1,8 @@
-import { ServiceService } from './../../servicio/service.service';
+import { Instrumento } from './../../entidades/instrumento';
+import { ServiceService } from './../../service/service.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-detalle-instrumento',
@@ -8,13 +10,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detalle-instrumento.component.css']
 })
 export class DetalleInstrumentoComponent implements OnInit {
-   intrumento: any;
+   intrumento: Instrumento;
   constructor(private service: ServiceService , private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(params => {
-      console.log(params.id);
-      console.log('id actual');
-
-      this.intrumento = this.service.getPlatoXId(params.id);
+      this.service.getBaseDatosXId(params['id']).subscribe(encontrado=>{
+        this.intrumento= encontrado as Instrumento;
+      })
+      
 
     });
    }

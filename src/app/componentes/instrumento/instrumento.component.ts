@@ -1,4 +1,5 @@
-import { ServiceService } from './../../servicio/service.service';
+import { ServiceService } from './../../service/service.service';
+import { Instrumento } from './../../entidades/instrumento';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,13 +10,19 @@ import { Router } from '@angular/router';
 })
 export class InstrumentoComponent implements OnInit {
 
-  instArr: any[] = [];
+  instArr: Instrumento[] = [];
+  loading= true;
 
   constructor(private service: ServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.instArr = this.service.getInstrumentos();
-    console.log(this.instArr);
+    this.service.getFromDataBase().subscribe(data=>{
+      for(let instru in data){
+        this.instArr.push(data[instru])
+      }
+      this.loading=false;
+    })
+    
   }
 
   public verInstr(idx: string){

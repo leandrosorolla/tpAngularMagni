@@ -1,4 +1,4 @@
-import { ServiceService } from './../../servicio/service.service';
+ import { ServiceService } from './../../service/service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -16,7 +16,12 @@ export class BuscadorComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.termino = params['termino'];
-      this.intrumentoBusqueda = this.service.buscarIntrumento(params['termino']);
+      this.service.getBusquedaFromDataBase(this.termino).subscribe(data=>{
+        for(let instru in data ){
+          this.intrumentoBusqueda.push(data[instru]);
+        }
+      });
+      // this.intrumentoBusqueda = this.service.buscarIntrumento(params['termino']);
     });
 
   }

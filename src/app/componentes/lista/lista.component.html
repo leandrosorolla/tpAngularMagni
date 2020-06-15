@@ -1,0 +1,66 @@
+<h1 >Instrumentos</h1>
+<hr>
+<div class="row">
+  <div class="col-md-12 text-right">
+  <!-- Al estar dentro de un router-outlet hay que añadir un "/" para que salga fuera y acceda
+        correctamente a la ruta que queremos ir
+  -->
+    <button [routerLink]="['/admin', 'nuevo']"
+        type="button" class="btn btn-outline-primary" type="button" name="button">
+      Nuevo Instrumento
+    </button>
+  </div>
+</div>
+<div class="row animated fadeIn">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table width="100%" class="table table-sm table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th style="width: 10%;">#</th>
+            <th style="width: 20%;">Nombre</th>
+            <th style="width: 20%;">marca</th>
+            <th style="width: 20%;">modelo</th>
+            <th style="width: 20%;">precio</th>
+            <th style="width: 20%;">costoEnvio</th>
+            <th style="width: 20%;">cantidadVendida</th>
+            <th style="width: 20%;">descripcion</th>
+
+            <th style="width: 40%;" class="text-right">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let instru of Instrumentos; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ instru.nombre }}</td>
+              <td>{{ instru.marca }}</td>
+              <td>{{ instru.modelo }}</td>
+              <td>{{ instru.precio }}</td>
+              <td>{{ instru.costoEnvio }}</td>
+              <td>{{ instru.cantidadVendida }}</td>
+              <td>{{ instru.descripcion }}</td>
+
+              <td class="text-right w120">
+                  <button [routerLink]="['/detalleInstrumento', instru.id]" type="button" 
+                  class="btn btn-outline-primary" type="button" name="button">
+                  <i class="fas fa-edit"></i> Detalle
+                  </button>&nbsp;&nbsp;
+                  <button [routerLink]="['/admin', instru.id]" type="button" 
+                    class="btn btn-outline-success" type="button" name="button">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>&nbsp;&nbsp;
+                  <button (click)="delete(instru.id)" type="button" class="btn btn-outline-danger" type="button" name="button">
+                    <i class="fas fa-trash-alt"></i> Eliminar
+                  </button>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+      <div *ngIf="(Instrumentos | keys).length ===0" 
+            class="alert alert-info" role="alert">
+        <strong>No hay</strong> registros que mostrar
+      </div>
+    </div>
+  </div>
+</div>
+

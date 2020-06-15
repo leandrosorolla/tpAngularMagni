@@ -1,0 +1,47 @@
+<h3>Plato <small>{{ plato.nombre }}</small></h3>
+<button class="btn btn-outline-danger" [routerLink]="['/lista']">Regresar</button>
+<button class="btn btn-outline-success" (click)="addNew(forma)">Nuevo plato</button>
+<hr>
+
+<div class="row animated fadeIn fast">
+  <div class="col-md-12">
+    <form (ngSubmit)="save()" #forma="ngForm">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" [(ngModel)]="instrumento.instrumento" name="nombre" class="form-control" required minlength="4" placeholder="nombre">
+      </div>
+      <div class="form-group">
+        <label for="marca">marca</label>
+        <input id="marca" [(ngModel)]="instrumento.marca" name="marca" class="form-control" required minlength="4" placeholder="marca">
+      </div>
+      <div class="form-group">
+        <label for="modelo">modelo</label>
+        <input id="modelo" [(ngModel)]="instrumento.modelo" name="modelo" class="form-control" required minlength="4" placeholder="modelo">
+      </div>
+      <div class="form-group">
+        <label for="imagen">imagen</label>
+        <input id="imagen" [(ngModel)]="instrumento.imagen" name="imagen" class="form-control" required minlength="4" placeholder="imagen">
+      </div>
+      <div class="form-group">
+          <label for="precio">Precio</label>
+          <input id="precio" type="number" [(ngModel)]="instrumento.precio" name="precio" class="form-control" required minlength="4" placeholder="Precio">
+      </div>
+      <div class="form-group">
+        <label for="costoEnvio">costoEnvio</label>
+        <input id="costoEnvio" [(ngModel)]="instrumento.costoEnvio" name="rubro" class="form-control" required minlength="4" placeholder="costoEnvio">
+      </div>
+      <div class="form-group">
+        <label for="cantidadVendida">cantidadVendida</label>
+        <input id="cantidadVendida" [(ngModel)]="instrumento.cantidadVendida" name="cantidadVendida" class="form-control" required minlength="4" placeholder="cantidadVendida">
+      </div>
+      <div class="form-group">
+        <label for="descripcion">descripcion</label>
+        <input id="descripcion" [(ngModel)]="instrumento.descripcion" name="descripcion" class="form-control" required minlength="4" placeholder="Imagen">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-primary">Guardar instrumento</button>
+        <span style="text-align: right; width: 500; color: blue; font-weight: bold">&nbsp;&nbsp;&nbsp; {{ resultadoOperacion }}</span>
+      </div>
+    </form>
+  </div>
+</div>

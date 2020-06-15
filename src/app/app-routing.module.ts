@@ -1,3 +1,5 @@
+import { AdminComponent } from './componentes/admin/admin.component';
+import { ListaComponent } from './componentes/lista/lista.component';
 import { BuscadorComponent } from './componentes/buscador/buscador.component';
 import { DetalleInstrumentoComponent } from './componentes/detalle-instrumento/detalle-instrumento.component';
 import { NgModule } from '@angular/core';
@@ -13,6 +15,8 @@ const routes: Routes = [
   {path: 'instrumentos', component: InstrumentoComponent},
   {path:'detalleInstrumento/:id', component:DetalleInstrumentoComponent},
   {path: 'buscar/:termino', component:BuscadorComponent},
+  {path: 'lista', component:ListaComponent},
+  {path: 'admin/:id', component:AdminComponent },
   {path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

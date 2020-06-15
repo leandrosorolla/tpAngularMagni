@@ -11,7 +11,14 @@ import { AboutComponent } from './componentes/about/about.component';
 import { DetalleInstrumentoComponent } from './componentes/detalle-instrumento/detalle-instrumento.component';
 import { BuscadorComponent } from './componentes/buscador/buscador.component';
 import { CommonModule } from '@angular/common';
-@NgModule({
+import { ItemIntrumentoComponent } from './componentes/item-intrumento/item-intrumento.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ListaComponent } from './componentes/lista/lista.component';
+import { AdminComponent } from './componentes/admin/admin.component';
+import { FormsModule } from '@angular/forms';
+import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+
+  @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -19,13 +26,20 @@ import { CommonModule } from '@angular/common';
     AboutComponent,
     DetalleInstrumentoComponent,
     BuscadorComponent,
-    InstrumentoComponent
+    InstrumentoComponent,
+    ItemIntrumentoComponent,
+    ListaComponent,
+    AdminComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    HttpClientModule,
+    NgbPaginationModule, NgbAlertModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
