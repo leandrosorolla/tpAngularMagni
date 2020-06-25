@@ -12,11 +12,14 @@ export class ItemIntrumentoComponent implements OnInit {
   @Input() index:number;
 
   @Output() instrumentoSeleccionado: EventEmitter<number>;
+
   constructor(private router:Router) {
     this.instrumentoSeleccionado=  new EventEmitter();
    }
 
   ngOnInit(): void {
+    console.log(this.intumAux,"item");
+    
   }
   public verInstrumento(){
     console.log(this.index);

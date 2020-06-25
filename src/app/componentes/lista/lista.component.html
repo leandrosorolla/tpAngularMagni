@@ -30,9 +30,9 @@
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let instru of Instrumentos; let i = index">
+            <tr *ngFor="let instru of instrumento; let i = index">
               <th scope="row">{{ i + 1 }}</th>
-              <td>{{ instru.nombre }}</td>
+              <td>{{ instru.instrumento }}</td>
               <td>{{ instru.marca }}</td>
               <td>{{ instru.modelo }}</td>
               <td>{{ instru.precio }}</td>
@@ -40,7 +40,7 @@
               <td>{{ instru.cantidadVendida }}</td>
               <td>{{ instru.descripcion }}</td>
 
-              <td class="text-right w120">
+              <td class="text-right w120 row  " style="width: 252px;">
                   <button [routerLink]="['/detalleInstrumento', instru.id]" type="button" 
                   class="btn btn-outline-primary" type="button" name="button">
                   <i class="fas fa-edit"></i> Detalle
@@ -56,10 +56,10 @@
             </tr>
         </tbody>
       </table>
-      <div *ngIf="(Instrumentos | keys).length ===0" 
+      <!-- <div *ngIf="(instrumento | keys).length ===0" 
             class="alert alert-info" role="alert">
         <strong>No hay</strong> registros que mostrar
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

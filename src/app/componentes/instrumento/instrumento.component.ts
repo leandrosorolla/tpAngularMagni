@@ -19,6 +19,8 @@ export class InstrumentoComponent implements OnInit {
     this.service.getFromDataBase().subscribe(data=>{
       for(let instru in data){
         this.instArr.push(data[instru])
+        console.log(this.instArr);
+        
       }
       this.loading=false;
     })

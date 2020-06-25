@@ -1,9 +1,9 @@
 <h1>Nuestros Instrumentos</h1>
-<div class="row row-cols-1 row-cols-md-4">
-  <div class="col mb-4">
+<div class="container">
+  <div class="row mb-4">
     <div class="card-deck ">
-      <app-item-intrumento (instrumentoSeleccionado)= "verPlato($event)" 
-      *ngFor="let intruLocal of intruArr;let i = index" [intruAux]="intruLocal"
+      <app-item-intrumento (instrumentoSeleccionado)= "verInstr($event)" 
+      *ngFor="let intruLocal of instArr;let i = index" [intumAux]="intruLocal"
       [index]="intruLocal.id">
       </app-item-intrumento>
      
